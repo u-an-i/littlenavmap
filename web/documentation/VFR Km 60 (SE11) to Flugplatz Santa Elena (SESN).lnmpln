@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>VFR</FlightplanType>
+      <CruisingAlt>14000</CruisingAlt>
+      <CreationDate>2021-05-30T21:01:57</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.11</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData>MSFS</SimData>
+    <NavData Cycle="2105">NAVIGRAPH</NavData>
+    <Departure>
+      <Pos Lon="-79.371361" Lat="-0.531291" Alt="613.00"/>
+      <Start>19</Start>
+    </Departure>
+    <Waypoints>
+      <Waypoint>
+        <Name>Km 60</Name>
+        <Ident>SE11</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-79.371948" Lat="-0.536351" Alt="613.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WP1</Ident>
+        <Type>USER</Type>
+        <Pos Lon="-79.594315" Lat="-2.127884" Alt="14000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WP2</Ident>
+        <Type>USER</Type>
+        <Pos Lon="-79.688828" Lat="-2.255389" Alt="14000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WP3</Ident>
+        <Type>USER</Type>
+        <Pos Lon="-79.886040" Lat="-2.158814" Alt="14000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WP4</Ident>
+        <Type>USER</Type>
+        <Pos Lon="-80.463356" Lat="-2.227518" Alt="14000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WP5</Ident>
+        <Type>USER</Type>
+        <Pos Lon="-80.985039" Lat="-2.207784" Alt="9834.92"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WP6</Ident>
+        <Type>USER</Type>
+        <Pos Lon="-80.933044" Lat="-1.932615" Alt="4287.20"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WP7</Ident>
+        <Type>USER</Type>
+        <Pos Lon="-80.825439" Lat="-1.867939" Alt="1801.01"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Flugplatz Santa Elena</Name>
+        <Ident>SESN</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-80.738426" Lat="-1.845166" Alt="20.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

@@ -1,0 +1,48 @@
+Idea: zoom into map when navigating tight corners and zoom out when going straight along time, set refresh rate so that the aircraft has moved 1px after the refresh delay, this is to use every pixel the viewport has to offer.
+
+Actual attempt: the map is centered around the aircraft. Show the remaining part of the current section to the nex waypoint and the whole following section in front of the aircraft in the viewport. Refresh every x seconds so that every 1px movement is caught. Zoom to 0 when closing in on a waypoint, zoom back afterwards.
+
+Note: the field of view depends on the map size and the zoom level, not the zoom level only. The zoom level used by the server is certain integers, not all, not decimal.
+
+Experimental determination of zoom level exposed in web ui and field of view at image width of 2000px (= ~ 1920px Desktop = ~ 1024px iPad Retina (x2))      // "error": should use height at around 9:16 width for relevant fov: this and next section should also fit in "smaller direction" case
+
+zoom = A    fov (km) = B
+
+0                 13
+1                 26
+2                 53
+3                106
+4                212
+5                425
+6                850
+7               1700
+8               3400
+9               7000
+10             15000
+11             32000
+
+From this, take: B(A) = ~ 13.28125 * 2^A
+
+
+let distance current position to next waypoint = Y
+
+let projection of following section onto current section + Y = clamp(cos(180 - angle between sections), 0, 1) * length next section + Y = X = distance in front of aircraft to be fit into viewport
+
+2 * X === B => A    // A decimal; aircraft is centered, X extends to only 1 half of viewport, 2 * X covers whole viewport
+
+1 / (pixel_amount / B * v (km/3600s)) = t_refresh           // target: t_refresh[s] === aircraft moved 1 pixel at zoom level between refreshs; pixel_amount = number of pixels of "the viewports smaller side"      // "error": should be larger side: has more pixels, needs lower refresh delay (as "1 case fits all", ignore heading and possible calculation of available pixels)
+
+t_refresh = 0.1 + (3600 * B) / (pixel_amount * v[km/h])     // 0.1 = prevent 0;
+
+
+on ground (and in air): let when v[km/h] < 100: A = 0
+
+
+condition: next waypoint switch to next next waypoint === delta Y between 2 refreshs > 0 && delta distance current position to next next waypoint between 2 refreshs < 0
+
+
+on nearing next waypoint: zoom in: A = 0 when Y < 13.28125 / 2; let application code perform "smooth" zooming (currently limited to certain integers);
+
+
+
+//application code: zoom in by 3 zoom level per s; on way point advance zoom out to calculated zoom level by 3 zoom level per s
