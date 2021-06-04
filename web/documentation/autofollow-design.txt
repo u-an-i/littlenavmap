@@ -1,4 +1,4 @@
-Idea: zoom into map when navigating tight corners and zoom out when going straight along time, set refresh rate so that the aircraft has moved 1px after the refresh delay, this is to use every pixel the viewport has to offer.
+ Idea: zoom into map when navigating tight corners and zoom out when going straight along time, set refresh rate so that the aircraft has moved 1px after the refresh delay, this is to use every pixel the viewport has to offer.
 
 Actual attempt: the map is centered around the aircraft. Show the remaining part of the current section to the nex waypoint and the whole following section in front of the aircraft in the viewport. Refresh every x seconds so that every 1px movement is caught. Zoom to 0 when closing in on a waypoint, zoom back afterwards.
 
